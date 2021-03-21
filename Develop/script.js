@@ -14,12 +14,10 @@ function setColorRow() {
             // Compares row id to current hour and sets color accordingly
             if (currentHour === rowHour) {
                 setColor(row, "red");
-            } else if ((currentHour < rowHour) && (currentHour > rowHour + 24)) {
+            } else if ((currentHour < rowHour) && (currentHour < rowHour + 8)) {
                 setColor(row, "green");
-            } else if ((currentHour > rowHour) && (currentHour < rowHour + 24)) {
-                setColor(row, "lightgrey");
-            } else {
-                setColor(row, "white");
+            } else if ((currentHour > rowHour) && (currentHour < rowHour + 8)) {
+                setColor(row, "lightgrey"); 
             }
         }
     });
@@ -40,6 +38,13 @@ function displayDate() {
 }
 
 displayDate();
+
+function clearText()
+{  
+document.getElementById('text').value = "";
+}
+
+clearText(); 
 
 //Set Local Storage
 function saveEdits() {
@@ -86,26 +91,26 @@ function saveEdits() {
 
 function checkEdits() {
     if (localStorage.userEdits !== null)
-        document.getElementById('text').innerHTML = localStorage.userEdits;
+        document.getElementById('text').innerHTML = localStorage.userEdits || "";
     if (localStorage.userEdits1 !== null)
-        document.getElementById('text1').innerHTML = localStorage.userEdits1;
+        document.getElementById('text1').innerHTML = localStorage.userEdits1 || "";
     if (localStorage.userEdits2 !== null)
-        document.getElementById('text2').innerHTML = localStorage.userEdits2;
+        document.getElementById('text2').innerHTML = localStorage.userEdits2|| "";
     if (localStorage.userEdits3 !== null)
-        document.getElementById('text3').innerHTML = localStorage.userEdits3;
+        document.getElementById('text3').innerHTML = localStorage.userEdits3 || "";
     if (localStorage.userEdits4 !== null)
-        document.getElementById('text4').innerHTML = localStorage.userEdits4;
+        document.getElementById('text4').innerHTML = localStorage.userEdits4 || "";
     if (localStorage.userEdits5 !== null)
-        document.getElementById('text5').innerHTML = localStorage.userEdits5;
+        document.getElementById('text5').innerHTML = localStorage.userEdits5 || "";
     if (localStorage.userEdits0 !== null)
-        document.getElementById('text0').innerHTML = localStorage.userEdits0;
+        document.getElementById('text0').innerHTML = localStorage.userEdits0|| "";
     if (localStorage.userEdits7 !== null)
-        document.getElementById('text7').innerHTML = localStorage.userEdits7;
+        document.getElementById('text7').innerHTML = localStorage.userEdits7|| "";
     if (localStorage.userEdits8 !== null)
-        document.getElementById('text8').innerHTML = localStorage.userEdits8;
+        document.getElementById('text8').innerHTML = localStorage.userEdits8|| "";
     if (localStorage.userEdits9 !== null)
-        document.getElementById('text9').innerHTML = localStorage.userEdits9
-
+        document.getElementById('text9').innerHTML = localStorage.userEdits9|| "";
 }
 
 checkEdits();
+
